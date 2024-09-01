@@ -17,3 +17,52 @@
     <p><a href="https://fjuedu-my.sharepoint.com/:f:/g/personal/404022064_m365_fju_edu_tw/EnIua0zx8ehBoZfVO26UMgsB5mc192E_a-TxfAaiZohVew?e=rGJj8S" target="_blank">Access the Ebook Library</a></p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Library</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Book Library</h1>
+    <input type="text" id="searchInput" onkeyup="searchBooks()" placeholder="Search for books...">
+    <ul id="bookList">
+        <li><a href="https://fjuedu-my.sharepoint.com/:f:/g/personal/404022064_m365_fju_edu_tw/EnIua0zx8ehBoZfVO26UMgsB5mc192E_a-TxfAaiZohVew?e=rGJj8S" target="_blank">Example Book Title</a></li>
+        <!-- 添加更多書籍鏈接 -->
+    </ul>
+
+    <script>
+        function searchBooks() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const ul = document.getElementById('bookList');
+            const li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                const a = li[i].getElementsByTagName('a')[0];
+                const txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
